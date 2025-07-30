@@ -1,0 +1,1063 @@
+/* Variables de Couleur et Police pour ton Portfolio */
+:root {
+  --primary-color: #2c3e50; /* Bleu marine très foncé / Gris-bleu pour le texte principal, fonds sombres */
+  --accent-color: #007bff; /* Un bleu plus vif pour les accents, boutons, liens */
+  --light-accent-color: #e0f2ff; /* Bleu très clair pour les fonds et dégradés */
+  --text-color: #333333; /* Gris foncé pour le texte des paragraphes, bonne lisibilité */
+  --light-text-color: #666666; /* Gris moyen pour les descriptions secondaires, infos */
+  --bg-light: #f8f9fa; /* Arrière-plan général très clair */
+  --bg-white: #ffffff; /* Fond blanc pur */
+
+  --font-heading: 'Montserrat', sans-serif; /* Police moderne et percutante pour les titres */
+  --font-body: 'Open Sans', sans-serif; /* Police claire et lisible pour le corps de texte */
+}
+
+/* Base générale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--bg-white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  line-height: 1.2;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent; /* Bordure transparente par défaut */
+}
+
+.primary-btn {
+  background-color: var(--accent-color);
+  color: var(--bg-white);
+  margin: 10px 0px;
+  border-color: var(--accent-color); /* Bordure de la couleur principale */
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--bg-white);
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.secondary-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-white);
+}
+
+.small-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+.large-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--bg-white);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px; /* Hauteur de la navbar */
+}
+
+/* Ancienne règle .logo pour le texte, on va l'adapter pour l'image ou la remplacer */
+.logo {
+  display: flex; /* Permet d'aligner l'image au centre si elle n'occupe pas tout l'espace */
+  align-items: center;
+  height: 100%; /* Permet à l'image de prendre la hauteur disponible du logo */
+}
+
+/* NOUVELLE RÈGLE : Pour l'image à l'intérieur du lien .logo */
+.logo img {
+  height: 180px; /* Ajuste cette hauteur pour la taille souhaitée du logo dans la navbar */
+  max-width: 180px; /* Limite la largeur maximale pour éviter qu'il ne déborde sur mobile */
+  width: auto; /* Maintient les proportions de l'image */
+  object-fit: contain; /* S'assure que le logo est entièrement visible sans être coupé */
+  display: block; /* Élimine les espaces indésirables */
+}
+
+
+nav a {
+  margin-left: 2rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  position: relative;
+}
+
+/* ... le reste de ton CSS pour la navbar et le site ... */
+nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Soulignement au survol */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+    background: var(--accent-color);
+}
+
+.btn-contact {
+    margin-left: 2rem;
+    background-color: var(--accent-color);
+    color: var(--bg-white);
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease;
+    border: none; /* Pas de bordure pour les boutons de la navbar */
+}
+
+.btn-contact:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    text-decoration: none;
+}
+/* Pas de soulignement sur les boutons */
+.btn-contact::after {
+    content: none;
+}
+
+
+/* Hero Section */
+.hero-portfolio {
+  background: linear-gradient(to right, var(--light-accent-color), var(--bg-white));
+  padding: 150px 0 80px;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1 1 500px;
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: var(--light-text-color);
+  margin-bottom: 2.5rem;
+}
+
+.hero-text .btn {
+  margin-right: 1.5rem;
+}
+
+.hero-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Intro Section */
+.intro-section {
+  padding: 80px 0;
+  background-color: var(--bg-white);
+  text-align: center;
+}
+
+.intro-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.intro-section p {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  color: var(--light-text-color);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.benefit-item {
+  background-color: var(--bg-light);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-item i {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.benefit-item h4 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.benefit-item p {
+  font-size: 0.95rem;
+  color: var(--light-text-color);
+  margin-bottom: 0;
+}
+
+/* Featured Projects Section */
+.featured-projects {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+  text-align: center;
+}
+
+.featured-projects h2 {
+  margin-bottom: 3rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background-color: var(--bg-white);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card img {
+  width: 100%;
+  height: 250px; /* Hauteur fixe pour les images de preview */
+  object-fit: cover; /* Recadre l'image pour couvrir la zone */
+  display: block;
+}
+
+.project-info {
+  padding: 1.5rem;
+  text-align: left;
+  flex-grow: 1; /* Permet au contenu de s'étendre */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+}
+
+.project-info p {
+  font-size: 0.95rem;
+  color: var(--light-text-color);
+  margin-bottom: 1.5rem;
+}
+
+.project-info .btn {
+  align-self: flex-start; /* Aligne le bouton à gauche */
+  margin-top: auto; /* Pousse le bouton vers le bas */
+}
+
+.project-info .technologies {
+    display: block; /* S'assure que le span prend toute la largeur */
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* CTA Portfolio Section */
+.cta-portfolio {
+  background: var(--accent-color);
+  color: var(--bg-white);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta-portfolio h2 {
+  color: var(--bg-white);
+  margin-bottom: 1.5rem;
+}
+
+.cta-portfolio p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.cta-portfolio .btn {
+    border-color: var(--bg-white); /* Bordure blanche pour le bouton */
+    background-color: transparent; /* Fond transparent par défaut pour le bouton du CTA */
+    color: var(--bg-white); /* Texte blanc par défaut */
+}
+.cta-portfolio .btn:hover {
+    background-color: var(--bg-white);
+    color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+  background: var(--primary-color);
+  color: var(--bg-white);
+  padding: 3rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+footer a {
+  color: var(--bg-white);
+  margin: 0 0.8rem;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: var(--accent-color);
+}
+
+.footer-links {
+  margin-top: 1rem;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .hero-text h1 {
+    font-size: 2.8rem;
+  }
+  .hero-text p {
+    font-size: 1.1rem;
+  }
+  h2 { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 0;
+  }
+  .logo {
+    margin-bottom: 1rem;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav a {
+    margin: 0.5rem 1rem;
+  }
+  .btn-contact {
+    margin: 1rem 0 0 0;
+  }
+
+  .hero-portfolio {
+    padding-top: 180px; /* Plus d'espace pour la navbar repliée */
+  }
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text, .hero-image {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .hero-text .btn {
+    display: block;
+    margin: 0.5rem auto;
+  }
+  .hero-image img {
+    margin-top: 2rem;
+  }
+  .benefits-grid, .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-card img {
+      height: 200px;
+  }
+}
+
+/* --- Styles pour les Pages Internes du Portfolio --- */
+
+/* Page Hero Section (Bannières spécifiques aux pages) */
+.page-hero {
+  padding: 150px 0 80px; /* Adapte le padding top pour la navbar fixe */
+  text-align: center;
+  background: linear-gradient(to right, var(--light-accent-color), var(--bg-white));
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.page-hero p {
+  font-size: 1.2rem;
+  color: var(--light-text-color);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Styles spécifiques pour les bannières de pages */
+.realisations-hero { background: linear-gradient(to right, #e8f5e9, var(--bg-white)); border-bottom-color: #4CAF50; } /* Vert clair pour Réalisations */
+.services-hero-page { background: linear-gradient(to right, #fefce8, var(--bg-white)); border-bottom-color: #f7d000; } /* Jaune clair pour Services */
+.about-hero { background: linear-gradient(to right, #e0f7fa, var(--bg-white)); border-bottom-color: #00bcd4; } /* Bleu turquoise clair pour À Propos */
+.contact-hero-page { background: linear-gradient(to right, #ffebee, var(--bg-white)); border-bottom-color: #ef5350; } /* Rouge clair pour Contact */
+
+
+/* --- PAGE RÉALISATIONS (realisations.html) --- */
+.portfolio-details {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+}
+
+.project-detail-card {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
+
+.project-detail-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Règle spécifique pour l'image du projet "Salon de Coiffure" */
+.hair-salon-project .project-image-wrapper {
+    /* J'ai mis 300px pour qu'elle ait la même hauteur que les autres par défaut.
+       Tu peux ajuster si tu veux une hauteur différente pour celle-ci. */
+    height: 750px; 
+}
+
+.hair-salon-project .project-image-wrapper img {
+    object-fit: cover; /* S'assure que l'image couvre bien la zone */
+    object-position: center; /* <--- C'EST CELLE-CI QUI VA CENTRER L'IMAGE DANS SON CADRE ! */
+    /* Si "center" ne te montre pas la bonne partie de l'image (ex: coupe les têtes),
+       tu peux essayer des valeurs comme :
+       object-position: top; (pour voir le haut de l'image)
+       object-position: 50% 30%; (pour un ajustement très fin, par exemple 50% horizontalement, 30% verticalement depuis le haut)
+    */
+}
+
+
+.project-image-wrapper {
+  flex: 1 1 500px;
+  min-height: 350px;
+  position: relative;
+  overflow: hidden;
+  object-position: center;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  
+}
+
+.project-info-detail {
+  flex: 1 1 400px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-info-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-info-detail p {
+  font-size: 1.05rem;
+  color: var(--light-text-color);
+  margin-bottom: 1.5rem;
+}
+
+.project-info-detail ul {
+  list-style: none; /* TRÈS IMPORTANT : S'assurer que les puces par défaut sont retirées */
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.project-info-detail ul li {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.7rem;
+  position: relative;
+  padding-left: 1.8rem;
+}
+
+/* Dans style.css, trouve la règle .project-info-detail ul li::before */
+.project-info-detail ul li::before {
+  /* On retire la police Font Awesome pour utiliser un caractère simple */
+  font-family: inherit; /* Utilise la police du texte environnant */
+  font-weight: normal; /* Pas de gras spécial */
+  content: '\2013'; /* Code Unicode pour un tiret cadratin (un petit tiret élégant) */
+  color: var(--primary-color); /* Couleur du texte principal (ton bleu marine/gris foncé), pour la discrétion */
+  font-size: 1.2rem; /* Taille de la puce, un peu plus grande que le texte pour la visibilité */
+  line-height: 1; /* Assure un bon alignement vertical */
+  position: absolute;
+  left: 0;
+  top: 0.1rem; /* Ajuster si besoin pour un alignement parfait */
+}
+
+/* ... (le reste de ton CSS pour cette section) ... */
+
+/* Inverser l'ordre image/texte pour certains projets */
+.project-detail-card.reverse-layout {
+  flex-direction: row-reverse;
+}
+
+/* --- PAGE SERVICES (services.html) --- */
+.services-offered {
+    padding: 80px 0;
+    background-color: var(--bg-white);
+    text-align: center;
+}
+
+.services-offered h2 {
+    margin-bottom: 3rem;
+}
+
+.service-category-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.service-item-detail {
+    background: var(--bg-light);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: left; /* Texte aligné à gauche dans les cartes de service */
+}
+
+.service-item-detail i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    display: block; /* Pour centrer si le parent est text-align: center */
+    text-align: center; /* Centre l'icône dans sa carte */
+}
+
+.service-item-detail h3 {
+    font-size: 1.7rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center; /* Centre le titre dans sa carte */
+}
+
+.service-item-detail p {
+    font-size: 1rem;
+    color: var(--light-text-color);
+    margin-bottom: 1.5rem;
+}
+
+.service-item-detail ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-item-detail ul li {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-item-detail ul li::before {
+    content: '•'; /* Puce simple pour les listes de services */
+    color: var(--accent-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.process-section {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+.process-section h2 {
+    margin-bottom: 3rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.step-item {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.step-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--light-accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+}
+
+.step-icon i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+.step-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+.step-item p {
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+    margin-bottom: 0;
+}
+
+
+/* --- PAGE À PROPOS (a-propos.html) --- */
+.about-me-section {
+  padding: 80px 0;
+  background-color: var(--bg-white);
+}
+
+.about-me-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-text {
+  flex: 1 1 500px;
+}
+
+.about-text h2 {
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  color: var(--light-text-color);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.about-text h3 {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text ul {
+  list-style: none; /* Assure que les puces par défaut sont retirées */
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.about-text ul li {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.7rem;
+  position: relative;
+  padding-left: 1.8rem;
+}
+
+/* Règle CSS MODIFIÉE pour la puce personnalisée dans "À Propos" */
+.about-text ul li::before {
+  font-family: inherit; /* Utilise la police du texte environnant */
+  font-weight: normal;
+  content: '\2013'; /* Code Unicode pour un tiret court (en dash) */
+  color: var(--primary-color); /* Couleur du texte principal pour la discrétion */
+  font-size: 1.2rem; /* Taille de la puce */
+  line-height: 1; /* Assure un bon alignement vertical */
+  position: absolute;
+  left: 0;
+  top: 0.1rem; /* Ajuster si besoin pour un alignement parfait */
+}
+.about-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* --- PAGE CONTACT (contact.html) --- */
+.contact-form-section {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.contact-info-block {
+  flex: 1 1 350px;
+  background: var(--bg-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.contact-info-block h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-info-block p {
+  font-size: 1rem;
+  color: var(--light-text-color);
+  margin-bottom: 2rem;
+}
+
+.contact-info-block .info-item {
+  display: flex;
+  align-items: flex-start; /* Alignement en haut pour le texte long */
+  margin-bottom: 1.5rem;
+}
+
+.contact-info-block .info-item i {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-right: 1rem;
+  width: 35px;
+  text-align: center;
+}
+
+.contact-info-block .info-item h4 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.2rem;
+}
+
+.contact-info-block .info-item p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.contact-info-block .info-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.contact-info-block .info-item a:hover {
+    color: var(--accent-color);
+}
+
+.social-links-contact {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.social-links-contact h4 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.social-links-contact a {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin: 0 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.social-links-contact a:hover {
+  color: var(--accent-color);
+}
+
+
+.contact-form-block {
+  flex: 2 1 500px;
+  background: var(--bg-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form-block h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-form-block p {
+  font-size: 1rem;
+  color: var(--light-text-color);
+  margin-bottom: 2rem;
+}
+
+.form-contact input,
+.form-contact textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.2rem; /* Espacement entre les champs */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--bg-light);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-contact input:focus,
+.form-contact textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Ombre de focus subtile */
+}
+
+.form-contact textarea {
+  resize: vertical; /* Permet de redimensionner verticalement */
+}
+
+/* Style spécifique pour le bouton du formulaire de contact */
+.form-contact .btn {
+  width: auto; /* Le bouton ne prend pas toute la largeur par défaut */
+  margin-top: 1rem; /* Espacement au-dessus du bouton */
+}
+
+/* --- Styles pour les Pages Légales (Mentions Légales, Politique de Confidentialité) --- */
+.legal-hero {
+  background: linear-gradient(to right, #f2f4f6, var(--bg-white)); /* Un fond doux */
+  border-bottom-color: var(--primary-color); /* Ligne de séparation de la couleur principale */
+}
+
+.legal-content-section {
+  padding: 80px 0;
+  background-color: var(--bg-white);
+}
+
+.legal-content-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem; /* Espacement au-dessus des titres de section */
+}
+
+.legal-content-section h2:first-of-type {
+    margin-top: 0; /* Pas de marge en haut du premier titre */
+}
+
+.legal-content-section p {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.legal-content-section ul {
+  list-style: disc; /* Puces de liste normales */
+  padding-left: 20px;
+  margin-bottom: 1rem;
+}
+
+.legal-content-section ul li {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.legal-content-section a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.legal-content-section a:hover {
+    color: var(--primary-color);
+}
+
+
+/* Ajustements Responsive pour les pages légales */
+@media (max-width: 768px) {
+    .legal-content-section h2 {
+        font-size: 1.6rem;
+    }
+    .legal-content-section p, .legal-content-section ul li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive adjustments pour toutes les nouvelles pages */
+@media (max-width: 992px) {
+  .page-hero h1 { font-size: 2.8rem; }
+  .project-detail-card, .about-me-content, .contact-grid {
+    flex-direction: column;
+  }
+  .project-image-wrapper, .project-info-detail,
+  .about-text, .about-image,
+  .contact-info-block, .contact-form-block {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .project-image-wrapper { min-height: 250px; }
+  .project-detail-card.reverse-layout { flex-direction: column; } /* Retire l'inversion sur mobile */
+}
+
+@media (max-width: 768px) {
+  .page-hero h1 { font-size: 2.2rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.7rem; }
+  .service-item-detail, .step-item, .contact-info-block, .contact-form-block {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.4rem; }
+  .page-hero p, .intro-section p, .cta-portfolio p {
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .form-contact input, .form-contact textarea {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.5rem; }
+  .btn {
+    padding: 0.8rem 1.5rem;
+  }
+}

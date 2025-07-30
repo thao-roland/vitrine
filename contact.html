@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - TRM Agence Web</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-content">
+        <a href="index.html" class="logo">
+          <img src="image/logo.png" alt="TRM Agence Web" />
+        </a>
+        <nav>
+          <a href="index.html">Accueil</a>
+          <a href="realisations.html">Réalisations</a>
+          <a href="services.html">Services</a>
+          <a href="a-propos.html">À Propos</a>
+          <a href="contact.html" class="btn-contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-hero contact-hero-page">
+      <div class="container">
+        <h1>Contactez TRM Agence Web</h1>
+        <p>Prêt à lancer votre projet web ? N'hésitez pas à me contacter pour discuter de vos besoins.</p>
+      </div>
+    </section>
+
+    <section class="contact-form-section">
+      <div class="container contact-grid">
+        <div class="contact-info-block">
+          <h2>Informations de Contact</h2>
+          <p>Je suis disponible pour répondre à toutes vos questions et vous accompagner dans votre projet digital.</p>
+
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:thao.roland163@gmail.com">thao.roland163@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <h4>Téléphone</h4>
+              <p><a href="tel:+33666385212">06 66 38 52 12 </a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h4>Disponibilité</h4>
+              <p>Du Lundi au Vendredi : 9h00 - 18h00</p>
+            </div>
+          </div>
+
+          <div class="social-links-contact">
+            <h4>Suivez-moi !</h4>
+            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="contact-form-block">
+          <h2>Envoyez-moi un Message</h2>
+          <p>Décrivez votre projet ou posez vos questions via le formulaire ci-dessous. Je vous répondrai dans les plus brefs délais.</p>
+          <form
+            action="https://formspree.io/f/xrbknojr" method="POST"
+            class="form-contact"
+          >
+            <input type="text" name="nom" placeholder="Votre nom" required />
+            <input type="email" name="email" placeholder="Votre email" required />
+            <input type="text" name="telephone" placeholder="Votre numéro de téléphone (optionnel)" />
+            <textarea
+              name="message"
+              placeholder="Décrivez votre besoin..."
+              rows="6"
+              required
+            ></textarea>
+            <button type="submit" class="btn primary-btn large-btn">Envoyer mon message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-portfolio">
+      <div class="container">
+        <h2>Une Idée Concrète ?</h2>
+        <p>
+          Je suis impatient de transformer votre vision en réalité digitale.
+        </p>
+        <a href="contact.html" class="btn primary-btn large-btn">Commencez votre projet</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 TRM Agence Web. Tous droits réservés.</p>
+        <div class="footer-links">
+          <a href="mentions.html">Mentions Légales</a>
+          <a href="politiques.html">Politique de Confidentialité</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
